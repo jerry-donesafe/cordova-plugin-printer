@@ -73,6 +73,11 @@ exports.print = function (success, fail, args) {
     exports._args = args[1];
 
     MSApp.getHtmlPrintDocumentSourceAsync(page).then(function (source) {
+        source.rightMargin = 0;
+        source.leftMargin = 0;
+        source.topMargin = 0;
+        source.bottomMargin = 0;
+        source.shrinkToFit = false;
         exports._page = source;
         PrintManager.showPrintUIAsync();
     });
