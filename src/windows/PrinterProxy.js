@@ -63,6 +63,12 @@ exports.pick = function (success, fail, args) {
  *      Interface arguments
  */
 exports.print = function (success, fail, args) {
+
+    if (!PrintManager.isSupported()) {
+        fail('Printer not supported');
+        return;
+    }
+
     var page    = document.createDocumentFragment(),
         content = document.createElement('html');
 
